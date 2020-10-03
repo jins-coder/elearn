@@ -1,0 +1,10 @@
+<?php
+$this->load->view('admin/common/master_head');
+if($this->session->userdata('admin_username')){
+$this->load->view('admin/common/header');
+}
+if(!empty($site_content)){
+$this->load->view($site_content);
+}
+$this->load->view('admin/common/footer');
+?>
