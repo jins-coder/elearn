@@ -166,7 +166,7 @@
 				>
 					<img
 							class="object-cover w-8 h-8 rounded-full"
-							src="https://ui-avatars.com/api/?name=<?=$username?>"
+							src="https://ui-avatars.com/api/?name=<?=$admin_username?>"
 							alt=""
 							aria-hidden="true"
 					/>

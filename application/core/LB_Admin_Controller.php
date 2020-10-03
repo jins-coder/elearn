@@ -47,8 +47,9 @@ class LB_Admin_Controller extends LB_Controller{
     // checking admin logged in redirecting based on it
     private function check_admin_logged_in() {
         if ($this->data['admin_logged_in'] == TRUE) {
-            if ($this->data['segment']['admin_controller'] == 'user') {
-                redirect('admin/dashboard/welcome');
+			$this->data['admin_username'] = $this->session->userdata('admin_username')?:'NA';
+			if ($this->data['segment']['admin_controller'] == 'user') {
+				redirect('admin/dashboard/welcome',$this->data);
             }
         } else if ($this->data['segment']['admin_controller'] != 'user') {
             redirect('admin/user/login');

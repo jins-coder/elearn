@@ -7,7 +7,6 @@ class Dashboard extends LB_Admin_Controller
         parent::__construct();
         #redirect(config_item('admin_folder').'/dashboard/welcome');
         $this->data['link_map']['controller'] = 'Dashboard';
-		$this->data['username'] = $this->session->userdata('admin_username');
 		$this->load->model('user_model');
     }
     public function index()

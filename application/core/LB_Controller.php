@@ -7,6 +7,7 @@ class LB_Controller extends CI_Controller{
      function __construct() {
         parent::__construct();
         $this->load_migration();
+        $this->data = array();
         $this->data['error'] = '';
         $this->data['alert'] = '';
         $this->data['website_title'] = config_item('website_title');

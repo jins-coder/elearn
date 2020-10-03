@@ -11,7 +11,7 @@
 ></script>
 <script src="<?=base_url('assets/js/init-alpine.js')?>"></script>
 <?php
-if($this->router->fetch_class() !== 'user'){?>
+if(FALSE){?>
 	<link
 	rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
