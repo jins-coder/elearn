@@ -7,7 +7,14 @@ class University_model extends CI_Model
 		parent::__construct();
   	}
   	public  function getApprovalList(){
-		$sql = $this->db->query("select * from unireg where 1");
+		$sql = $this->db->query("select * from unireg where 1 and status = 0");
 		return $sql->result();
 	}
+
+	public function getuniversityList()
+	{
+		$sql = $this->db->query("select * from unireg where 1 and status = 1");
+		return $sql->result();
+	}
+
 }

@@ -3,18 +3,8 @@
 		<h2
 			class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
 		>
-			Courses List
-
+			Students List
 		</h2>
-		<div class="mb-5">
-			<?= $alert ?>
-		</div>
-		<div class="align-right">
-			<button class="bg-blue-500 float-left hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-			onclick="location.href = '<?=base_url('admin/courses/addcourses')?>';">
-				Add Course
-			</button>
-		</div>
 		<!-- CTA -->
 
 		<!-- Cards -->
@@ -26,27 +16,64 @@
 					<tr
 						class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
 					>
-						<th class="px-4 py-3">#</th>
-						<th class="px-4 py-3">Course Name</th>
-
+						<th class="px-4 py-3">Name</th>
+						<th class="px-4 py-3">Address</th>
+						<th class="px-4 py-3">Gender</th>
+						<th class="px-4 py-3">DOB</th>
+						<th class="px-4 py-3">Contact</th>
+						<th class="px-4 py-3">Email</th>
+                        <th class="px-4 py-3">Qualification (YEAR) (%)</th>
+						<th class="px-4 py-3">University</th>
+						<th class="px-4 py-3">Profile Pic</th>
+						<th class="px-4 py-3">Status</th>
 					</tr>
 					</thead>
 					<tbody
 						class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
 					>
-					<?php if($courses): $index=1;
-						foreach ($courses as $course):
-
+					<?php if($students):
+						foreach ($students as $student):
+							$class = 'green';
+							if($student->status == 0) $class='red';
 							?>
 							<tr class="text-gray-700 dark:text-gray-400">
 								<td class="px-4 py-3 text-sm">
-									<p class="font-semibold"><?=$index?></p>
+									<p class="font-semibold"><?=$student->name?></p>
 								</td>
 								<td class="px-4 py-3 text-sm">
-									<p class="font-semibold"><?=$course->cname?></p>
+									<?=$student->hname .PHP_EOL.$student->district?>
 								</td>
+								<td class="px-4 py-3 text-sm">
+									<?=$student->gender?>
+								</td>
+								<td class="px-4 py-3 text-sm">
+									<?=$student->dob?>
+								</td>
+								<td class="px-4 py-3 text-sm">
+									<?=$student->contact?>
+								</td>
+								<td class="px-4 py-3 text-sm">
+									<?=$student->qual.' ('.$student->year.') ('.$student->per.')'?>
+								</td>
+								<td class="px-4 py-3 text-sm">
+									<?=$student->uname?>
+								</td>
+								<td class="px-4 py-3 text-sm">
+									<?=$student->email?>
+								</td>
+								<td class="px-4 py-3 text-sm">
+									<img src="<?=base_url('assets/upload/'.$student->photo)?>" alt="<?=$student->uname?>">
+								</td>
+								<td class="px-4 py-3 text-xs">
+                        <span
+							class="px-2 py-1 font-semibold leading-tight text-<?=$class?>-700 bg-<?=$class?>-100 rounded-full dark:bg-<?=$class?>-700 dark:text-<?=$class?>-100"
+						>
+                        <?=$student->status == 0?'Pending':'Approved'?>
+                        </span>
+								</td>
+
 							</tr>
-						<?php $index++; endforeach; endif;?>
+						<?php endforeach; endif;?>
 					</tbody>
 				</table>
 			</div>

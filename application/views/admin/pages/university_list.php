@@ -3,7 +3,7 @@
 		<h2
 			class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
 		>
-			University Approval
+			University List
 		</h2>
 		<!-- CTA -->
 
@@ -30,8 +30,8 @@
 					<tbody
 						class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
 					>
-					<?php if($universitylists):
-	                     foreach ($universitylists as $university):
+					<?php if($universities):
+	                     foreach ($universities as $university):
 						 $class = 'green';
 						 if($university->status == 0) $class='red';
 						 	?>
