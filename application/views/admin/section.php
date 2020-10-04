@@ -6,5 +6,9 @@ $this->load->view('admin/common/header');
 if(!empty($site_content)){
 $this->load->view($site_content);
 }
+?>
+</div>
+</div>
+<?php
 $this->load->view('admin/common/footer');
 ?>
