@@ -2,10 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class LB_Admin_Controller extends LB_Controller{
     // setting default values in the data variable
+	public $data;
     function __construct() {
         parent::__construct();
         // calling migration class to create table
-        $this->data['admin_logged_in'] = $this->session->admin_logged_in?:FALSE;
+        $this->data['admin_logged_in'] = $this->session->admin_logged_in?:TRUE;
         $this->data['pagination'] = '';
 		$this->get_admin_segment();
         $this->check_admin_logged_in();
@@ -46,7 +47,7 @@ class LB_Admin_Controller extends LB_Controller{
     }
     // checking admin logged in redirecting based on it
     private function check_admin_logged_in() {
-        if ($this->data['admin_logged_in'] == TRUE) {
+        if ($this->data['admin_logged_in']) {
 			$this->data['admin_username'] = $this->session->userdata('admin_username')?:'NA';
 			if ($this->data['segment']['admin_controller'] == 'user') {
 				redirect('admin/dashboard/welcome',$this->data);

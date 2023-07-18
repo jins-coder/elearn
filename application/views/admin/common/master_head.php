@@ -4,7 +4,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>E--LEARN</title>
-	<link rel="icon" href="<?=base_url('assets/img/worldwide.png')?>" type="image/gif" sizes="16x16">
+	<link rel="icon" href="<?=siteurl('assets/img/worldwide.png')?>" type="image/gif" sizes="16x16">
 	<?php $this->load->view('admin/common/styles'); ?>
 
 </head>

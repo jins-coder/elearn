@@ -2,13 +2,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Dashboard extends LB_Admin_Controller
 {
-    public function __construct()
+	public $user_model;
+
+	public function __construct()
     {
         parent::__construct();
         #redirect(config_item('admin_folder').'/dashboard/welcome');
         $this->data['link_map']['controller'] = 'Dashboard';
 		$this->load->model('user_model');
-    }
+		 $this->load->model(config_item('admin_folder') . '/User_model');
+    //echo "<pre>";print_r($this->user_model);die;
+	}
     public function index()
     {
 
@@ -18,7 +22,7 @@ class Dashboard extends LB_Admin_Controller
     {
 		$this->data['link_map']['method'] = 'Welcome';
         $this->data['site_content'] = 'admin/pages/home';
-        $this->load->view('admin/section', $this->data);
+		 $this->load->view('admin/section', $this->data);
 
     }
     public function change_password()
@@ -42,17 +46,16 @@ class Dashboard extends LB_Admin_Controller
                 )
             ));
         $this->form_validation->set_rules($validationRules);
-        if ($this->form_validation->run() == TRUE) {
+        if ($this->form_validation->run()) {
             $this->load->model(config_item('admin_folder') . '/User_model');
-            $result = $this->User_model->check_recovery_key_expired();
-            if ($this->User_model->change_password()) {
+            $this->user_model->check_recovery_key_expired();
+            if ($this->user_model->change_password()) {
                 $this->session->set_flashdata('success', 'Your account password changed successfully.');
-                $this->data['alert'] = $this->alertMessage() ?: '';
-            } else {
+			} else {
                 $this->session->set_flashdata('error', 'Your account password change unsuccessful.');
-                $this->data['alert'] = $this->alertMessage() ?: '';
-            }
-        }
+			}
+			$this->data['alert'] = $this->alertMessage() ?: '';
+		}
         $this->data['site_content'] = config_item('admin_folder') . '/page/change_password';
         $this->load->view(config_item('admin_folder') . '/section', $this->data);
     }

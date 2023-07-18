@@ -11,13 +11,13 @@
 				<img
 					aria-hidden="true"
 					class="object-cover w-full h-full dark:hidden"
-					src="<?=base_url('assets/img/login-office.jpeg')?>"
+					src="<?=siteurl('assets/img/login-office.jpeg')?>"
 					alt="Office"
 				/>
 				<img
 					aria-hidden="true"
 					class="hidden object-cover w-full h-full dark:block"
-					src="<?=base_url('assets/img/login-office-dark.jpeg')?>"
+					src="<?=siteurl('assets/img/login-office-dark.jpeg')?>"
 					alt="Office"
 				/>
 			</div>

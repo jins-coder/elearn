@@ -10,7 +10,7 @@
 				<img
 					aria-hidden="true"
 					class="object-cover w-full h-full dark:hidden"
-					src="<?=base_url('assets/img/create-account-office.jpeg')?>"
+					src="<?=siteurl('assets/img/create-account-office.jpeg')?>"
 					alt="Office"
 				/>
 				<img

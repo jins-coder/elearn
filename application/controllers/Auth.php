@@ -9,15 +9,15 @@ class Auth extends CI_Controller
 
 	public function index()
 	{
-		if($this->session->userdata('name')){
+		/*if($this->session->userdata('name')){
 			$this->load->view('student/home');
 		}else{
 			echo "Not Authenticated";
-		}
-
+		}*/
+		$this->load->view('student/home');
 	}
 	public function login(){
-        $retunr_login = $this->User_model->login();
+        //$this->User_model->login();
         $this->load->view('student/page/login');
 	}
 

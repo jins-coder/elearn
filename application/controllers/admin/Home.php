@@ -1,5 +1,6 @@
 <?php
-class Home extends MY_Controller
+defined('BASEPATH') OR exit('No direct script access allowed');
+class Home extends LB_Admin_Controller
 {
   public function __construct()
   {

@@ -61,9 +61,27 @@ if ( ! function_exists('site_url'))
 	 * @param	string	$protocol
 	 * @return	string
 	 */
-	function site_url($uri = '', $protocol = NULL)
+	function site_url($uri = '', $protocol = NULL): string
 	{
 		return get_instance()->config->site_url($uri, $protocol);
+	}
+}
+
+if ( ! function_exists('siteurl'))
+{
+	/**
+	 * Site URL
+	 *
+	 * Create a local URL based on your basepath. Segments can be passed via the
+	 * first parameter either as a string or an array.
+	 *
+	 * @param string $uri
+	 * @param string|null $protocol
+	 * @return	string
+	 */
+	function siteurl(string $uri = '', string $protocol = NULL): string
+	{
+		return get_instance()->config->item('baseurl').$uri;
 	}
 }
 
@@ -78,16 +96,33 @@ if ( ! function_exists('base_url'))
 	 * Segments can be passed in as a string or an array, same as site_url
 	 * or a URL to a file can be passed in, e.g. to an image file.
 	 *
-	 * @param	string	$uri
-	 * @param	string	$protocol
+	 * @param string $uri
+	 * @param string|null $protocol
 	 * @return	string
 	 */
-	function base_url($uri = '', $protocol = NULL)
+	function base_url(string $uri = '', string $protocol = NULL): string
 	{
 		return get_instance()->config->base_url($uri, $protocol);
 	}
 }
 
+if ( ! function_exists('site_url'))
+{
+	/**
+	 * Site URL
+	 *
+	 * Create a local URL based on your basepath. Segments can be passed via the
+	 * first parameter either as a string or an array.
+	 *
+	 * @param	string	$uri
+	 * @param	string	$protocol
+	 * @return	string
+	 */
+	function site_url($uri = '', $protocol = NULL): string
+	{
+		return get_instance()->config->site_url($uri, $protocol);
+	}
+}
 // ------------------------------------------------------------------------
 
 if ( ! function_exists('current_url'))
@@ -100,7 +135,7 @@ if ( ! function_exists('current_url'))
 	 *
 	 * @return	string
 	 */
-	function current_url()
+	function current_url(): string
 	{
 		$CI =& get_instance();
 		return $CI->config->site_url($CI->uri->uri_string());
@@ -118,7 +153,7 @@ if ( ! function_exists('uri_string'))
 	 *
 	 * @return	string
 	 */
-	function uri_string()
+	function uri_string(): string
 	{
 		return get_instance()->uri->uri_string();
 	}

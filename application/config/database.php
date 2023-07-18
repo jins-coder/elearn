@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'elearnnew',
-	'dbdriver' => 'mysqli',
+	'hostname' => 'DESKTOP-JINSON\SQLSERVER2019',
+	'username' => 'sa',
+	'password' => 'sa#123',
+	'database' => 'elearn',
+	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

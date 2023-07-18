@@ -85,7 +85,7 @@ class User extends LB_Admin_Controller
             )
         );
         $this->form_validation->set_rules($validationRules);
-        if ($this->form_validation->run() == TRUE) {
+        if ($this->form_validation->run()) {
             $result = $this->user_model->login();
             if (count($result) > 0) {
                 if($result->role=='A'){
@@ -124,7 +124,7 @@ class User extends LB_Admin_Controller
             )
         );
         $this->form_validation->set_rules($validationRules);
-        if ($this->form_validation->run() == TRUE) {
+        if ($this->form_validation->run()) {
             $result=$this->user_model->recover_by_email();
             if(count($result)>0){
                 if($result->user_account_status=='D'){

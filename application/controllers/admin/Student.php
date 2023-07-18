@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Student extends LB_Admin_Controller
 {
+	protected $student_model;
 	public function __construct()
 	{
 		parent::__construct();
